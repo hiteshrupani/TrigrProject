@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @StateObject var viewModel = HomeViewModel()
+    
     var body: some View {
         VStack {
             // address
@@ -19,8 +22,9 @@ struct HomeView: View {
                 
                 // recommended / popular tab
                 
+                
                 // restaurants
-                ForEach(tempRestaurant) { restaurant in
+                ForEach(viewModel.restaurants) { restaurant in
                     RestaurantCardView(restaurant: restaurant)
                 }
                 
