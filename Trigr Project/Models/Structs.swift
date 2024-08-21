@@ -45,3 +45,8 @@ var tempFoodCategories: [Food] = [
     Food(image: Image(.dosa), name: "Dosas"),
     Food(image: Image(.noodles), name: "Noodles"),
 ]
+
+var savedAddresses: [String] = [ "Chi - V, Greater Noida",
+                                 "Kamla Nagar, Agra",
+                                 "Sector 18, Noida",
+                                 "Sector 62, Noida"]

@@ -8,6 +8,8 @@
 import Foundation
 
 final class HomeViewModel: ObservableObject {
+    @Published var currentAddress: String
+    
     @Published var restaurants: [Restaurant] = []
     @Published var foodCategories: [Food] = []
     
@@ -20,6 +22,7 @@ final class HomeViewModel: ObservableObject {
             }
         }
     }
+    
     @Published var isRecommendedSelected: Bool {
         didSet {
             if isRecommendedSelected {
@@ -28,6 +31,7 @@ final class HomeViewModel: ObservableObject {
             }
         }
     }
+    
     @Published var isPopularSelected: Bool {
         didSet {
             if isPopularSelected {
@@ -38,6 +42,7 @@ final class HomeViewModel: ObservableObject {
     }
     
     init() {
+        self.currentAddress = savedAddresses[0]
         self.restaurants = tempRestaurant
         self.foodCategories = tempFoodCategories
         self.searchText = ""

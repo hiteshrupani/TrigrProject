@@ -13,7 +13,30 @@ struct HomeView: View {
     
     var body: some View {
         VStack (alignment: .leading) {
-            // address
+            // MARK: - Address
+            VStack (alignment: .leading) {
+                Text("Deliver to")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                Menu {
+                    ForEach(savedAddresses, id:\.self) { address in
+                        Button {
+                            viewModel.currentAddress = address
+                        } label: {
+                            Text(address)
+                        }
+                    }
+                } label: {
+                    Text(viewModel.currentAddress)
+                        .font(.title3)
+                        .bold()
+                    
+                    Spacer()
+                    Image(systemName: "chevron.down")
+                        .bold()
+                }
+            }
+            .padding(.horizontal)
             
             // MARK: - Search
             
@@ -38,7 +61,8 @@ struct HomeView: View {
                             }
                         }
                     }
-                    .padding()
+                    .padding(.bottom)
+                    .padding(.leading)
                     
                     // MARK: - Tabs
                     
