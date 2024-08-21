@@ -31,7 +31,6 @@ struct HomeView: View {
                         .font(.title3)
                         .bold()
                     
-                    Spacer()
                     Image(systemName: "chevron.down")
                         .bold()
                 }
@@ -56,7 +55,6 @@ struct HomeView: View {
                                 viewModel.searchText = ""
                             }, alignment: .trailing
                     )
-                    
             }
             .background(Color(.systemBackground))
             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))

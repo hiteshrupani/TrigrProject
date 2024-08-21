@@ -19,7 +19,6 @@ struct RestaurantCardView : View {
                 .frame(width: 100, height: 100)
                 .aspectRatio(contentMode: .fit)
                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-//                .shadow(color: Color.black.opacity(0.15),radius: 10, x: 0, y: 0)
                 .padding(.trailing)
             
             // text info
@@ -35,6 +34,7 @@ struct RestaurantCardView : View {
                 
                 Spacer()
                 
+                // rating, price, time
                 HStack {
                     Text("\(Image(systemName: "star.fill")) \(restaurant.rating, specifier: "%.1f")")
                     
