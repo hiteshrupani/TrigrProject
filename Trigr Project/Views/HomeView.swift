@@ -12,39 +12,75 @@ struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
     
     var body: some View {
-        VStack {
+        VStack (alignment: .leading) {
             // address
             
-            // search bar
+            // MARK: - Search
             
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.gray)
+                TextField("Search for restaurants, cuisines, or dishes", text: $viewModel.searchText)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(10)
+            }
+            .padding()
             
             ScrollView {
-                // food category
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack (spacing: 5){
-                        ForEach(viewModel.foodCategories) { food in
-                            FoodCategoryView(food: food)
+                if viewModel.searchText == "" {
+                    
+                    // MARK: - Food Categories
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack (spacing: 5){
+                            ForEach(viewModel.foodCategories) { food in
+                                FoodCategoryView(food: food)
+                            }
                         }
                     }
+                    .padding()
+                    
+                    // MARK: - Tabs
+                    
+                    HStack {
+                        
+                        // Recommended Button
+                        Button {
+                            viewModel.isRecommendedSelected = true
+                        } label: {
+                            Text("Recommended")
+                                .font(.headline)
+                                .bold()
+                                .padding(.horizontal)
+                                .padding(.vertical, 5)
+                                .foregroundStyle(viewModel.isRecommendedSelected ? Color.primary : Color.gray)
+                        }
+                        
+                        // Popular Button
+                        Button {
+                            viewModel.isPopularSelected = true
+                        } label: {
+                            Text("Popular")
+                                .font(.headline)
+                                .bold()
+                                .padding(.horizontal)
+                                .padding(.vertical, 5)
+                                .foregroundStyle(viewModel.isPopularSelected ? Color.primary : Color.gray)
+                            }
+                        
+                        Spacer()
+                    }
+                    .padding()
                 }
-                .padding(.leading)
+                // MARK: - Restaurants
                 
-                // recommended / popular tab
-                
-                
-                // restaurants
                 VStack {
                     ForEach(viewModel.restaurants) { restaurant in
                         RestaurantCardView(restaurant: restaurant)
                     }
                 }
-                
-                
             }
-            // tabs
         }
-        .background(Color.white.ignoresSafeArea())
-        
     }
 }
 

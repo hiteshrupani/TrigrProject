@@ -31,12 +31,12 @@ struct RestaurantCardView : View {
                 Text (restaurant.cuisine)
                     .font(.subheadline)
                     .lineLimit(1)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
                 
                 Spacer()
                 
                 HStack {
-                    Text("★ \(restaurant.rating, specifier: "%.1f")")
+                    Text("\(Image(systemName: "star.fill")) \(restaurant.rating, specifier: "%.1f")")
                     
                     Spacer()
                     
