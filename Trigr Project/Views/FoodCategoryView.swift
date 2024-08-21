@@ -10,6 +10,8 @@ import SwiftUI
 
 struct FoodCategoryView: View {
     
+    @StateObject var viewModel = HomeViewModel()
+    
     var food: Food
     
     var body: some View {
@@ -19,7 +21,7 @@ struct FoodCategoryView: View {
                 .frame(width: 80, height: 80)
                 .aspectRatio(contentMode: .fit)
                 .clipShape(Circle())
-                .shadow(radius: 5 , x: 0, y: 0)
+                .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
                 .padding(.vertical, 10)
             
             Text(food.name)
@@ -27,7 +29,6 @@ struct FoodCategoryView: View {
                 .bold()
         }
         .frame(width: 100)
-//        .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
     }
 }

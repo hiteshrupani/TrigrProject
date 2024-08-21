@@ -43,14 +43,26 @@ struct HomeView: View {
             HStack {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
+                    .padding(.leading)
                 TextField("Search for restaurants, cuisines, or dishes", text: $viewModel.searchText)
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
+                    .padding(.vertical)
+                    .padding(.trailing)
+                    .overlay (
+                        Image(systemName: "xmark.circle.fill")
+                            .padding()
+                            .opacity(viewModel.searchText == "" ? 0 : 1)
+                            .foregroundColor(.gray)
+                            .onTapGesture {
+                                viewModel.searchText = ""
+                            }, alignment: .trailing
+                    )
+                    
             }
+            .background(Color(.systemBackground))
+            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             .padding()
             
-            ScrollView {
+            ScrollView (.vertical, showsIndicators: false) {
                 if viewModel.searchText == "" {
                     
                     // MARK: - Food Categories
@@ -58,6 +70,9 @@ struct HomeView: View {
                         HStack (spacing: 5){
                             ForEach(viewModel.foodCategories) { food in
                                 FoodCategoryView(food: food)
+                                    .onTapGesture {
+                                        viewModel.searchText = food.name
+                                    }
                             }
                         }
                     }
@@ -73,7 +88,7 @@ struct HomeView: View {
                             viewModel.isRecommendedSelected = true
                         } label: {
                             Text("Recommended")
-                                .font(.headline)
+                                .font(.title3)
                                 .bold()
                                 .padding(.horizontal)
                                 .padding(.vertical, 5)
@@ -85,7 +100,7 @@ struct HomeView: View {
                             viewModel.isPopularSelected = true
                         } label: {
                             Text("Popular")
-                                .font(.headline)
+                                .font(.title3)
                                 .bold()
                                 .padding(.horizontal)
                                 .padding(.vertical, 5)
@@ -94,17 +109,20 @@ struct HomeView: View {
                         
                         Spacer()
                     }
-                    .padding()
+                    .padding(.horizontal)
+                    .padding(.vertical, 5)
                 }
                 // MARK: - Restaurants
                 
                 VStack {
                     ForEach(viewModel.restaurants) { restaurant in
                         RestaurantCardView(restaurant: restaurant)
+                            .padding(.horizontal)
                     }
                 }
             }
         }
+        .background(Color(.systemGroupedBackground))
     }
 }
 

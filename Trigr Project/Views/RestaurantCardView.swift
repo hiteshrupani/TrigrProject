@@ -19,7 +19,7 @@ struct RestaurantCardView : View {
                 .frame(width: 100, height: 100)
                 .aspectRatio(contentMode: .fit)
                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                .shadow(radius: 5, x: 0, y: 0)
+//                .shadow(color: Color.black.opacity(0.15),radius: 10, x: 0, y: 0)
                 .padding(.trailing)
             
             // text info
@@ -53,15 +53,14 @@ struct RestaurantCardView : View {
         .frame(height: 100)
         .frame(maxWidth: .infinity)
         .padding()
-        
-//        .background(Color.white)
+        .background(Color(.systemBackground))
         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-        
-        .padding(.leading)
-        .padding(.trailing)
     }
 }
 
-#Preview {
-    RestaurantCardView(restaurant: tempRestaurant[1])
+struct RestaurantCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        RestaurantCardView(restaurant: tempRestaurant[0])
+            .previewLayout(.sizeThatFits)
+    }
 }

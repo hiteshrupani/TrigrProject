@@ -18,7 +18,7 @@ final class HomeViewModel: ObservableObject {
             if searchText.isEmpty {
                 restaurants = tempRestaurant
             } else {
-                restaurants = tempRestaurant.filter { $0.name.lowercased().contains(searchText.lowercased()) || $0.cuisine.lowercased().contains(searchText.lowercased())}
+                restaurants = tempRestaurant.filter { $0.name.localizedCaseInsensitiveContains(searchText) || $0.cuisine.localizedCaseInsensitiveContains(searchText) }
             }
         }
     }
