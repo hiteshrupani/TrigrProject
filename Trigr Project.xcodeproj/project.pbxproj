@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6751EAF42C7671EA0070422C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6751EAF32C7671EA0070422C /* HomeViewModel.swift */; };
+		6751EAF62C7672C70070422C /* FoodCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6751EAF52C7672C70070422C /* FoodCategoryView.swift */; };
 		67898CB92C7611A700DCFE06 /* Trigr_ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67898CB82C7611A700DCFE06 /* Trigr_ProjectApp.swift */; };
 		67898CBB2C7611A700DCFE06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67898CBA2C7611A700DCFE06 /* ContentView.swift */; };
 		67898CBD2C7611A800DCFE06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67898CBC2C7611A800DCFE06 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		6751EAF32C7671EA0070422C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		6751EAF52C7672C70070422C /* FoodCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryView.swift; sourceTree = "<group>"; };
 		67898CB52C7611A700DCFE06 /* Trigr Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trigr Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67898CB82C7611A700DCFE06 /* Trigr_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trigr_ProjectApp.swift; sourceTree = "<group>"; };
 		67898CBA2C7611A700DCFE06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				67898CC92C76439900DCFE06 /* HomeView.swift */,
 				67898CCB2C764A6B00DCFE06 /* RestaurantCardView.swift */,
+				6751EAF52C7672C70070422C /* FoodCategoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67898CCA2C76439900DCFE06 /* HomeView.swift in Sources */,
+				6751EAF62C7672C70070422C /* FoodCategoryView.swift in Sources */,
 				6751EAF42C7671EA0070422C /* HomeViewModel.swift in Sources */,
 				67898CCC2C764A6B00DCFE06 /* RestaurantCardView.swift in Sources */,
 				67898CCE2C764ED300DCFE06 /* Structs.swift in Sources */,

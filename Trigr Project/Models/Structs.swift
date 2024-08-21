@@ -19,7 +19,9 @@ struct Restaurant: Identifiable {
     var timeToDeliver: Int
 }
 
-struct Food {
+struct Food: Identifiable {
+    var id = UUID()
+    
     var image: Image
     var name: String
 }

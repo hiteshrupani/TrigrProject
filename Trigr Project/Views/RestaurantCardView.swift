@@ -19,7 +19,7 @@ struct RestaurantCardView : View {
                 .frame(width: 100, height: 100)
                 .aspectRatio(contentMode: .fit)
                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                .shadow(radius: 5)
+                .shadow(radius: 5, x: 0, y: 0)
                 .padding(.trailing)
             
             // text info
@@ -31,6 +31,7 @@ struct RestaurantCardView : View {
                 Text (restaurant.cuisine)
                     .font(.subheadline)
                     .lineLimit(1)
+                    .foregroundColor(.gray)
                 
                 Spacer()
                 
@@ -46,16 +47,16 @@ struct RestaurantCardView : View {
                     Text("\(restaurant.timeToDeliver) min")
                 }
                 .font(.subheadline)
-                .bold()
-                
             }
             .padding(.trailing)
         }
         .frame(height: 100)
         .frame(maxWidth: .infinity)
         .padding()
-        .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 10, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/))
+        
+//        .background(Color.white)
+        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+        
         .padding(.leading)
         .padding(.trailing)
     }

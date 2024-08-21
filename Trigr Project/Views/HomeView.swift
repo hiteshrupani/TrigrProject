@@ -17,21 +17,33 @@ struct HomeView: View {
             
             // search bar
             
+            
             ScrollView {
                 // food category
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack (spacing: 5){
+                        ForEach(viewModel.foodCategories) { food in
+                            FoodCategoryView(food: food)
+                        }
+                    }
+                }
+                .padding(.leading)
                 
                 // recommended / popular tab
                 
                 
                 // restaurants
-                ForEach(viewModel.restaurants) { restaurant in
-                    RestaurantCardView(restaurant: restaurant)
+                VStack {
+                    ForEach(viewModel.restaurants) { restaurant in
+                        RestaurantCardView(restaurant: restaurant)
+                    }
                 }
+                
                 
             }
             // tabs
         }
-        .background(Color.secondary.opacity(0.2))
+        .background(Color.white.ignoresSafeArea())
         
     }
 }
